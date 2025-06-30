@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PID控制器_速度/角度 線上模擬</title>
+    <link rel="stylesheet" href="PID_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="PID_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="control-panel">
+            <div class="control-row">
+                <label for="kp">比例增益(Kp)</label>
+                <input type="number" id="kp" value="10" step="1">
+                
+                <label for="ki">積分增益(Ki)</label>
+                <input type="number" id="ki" value="0.3" step="0.1">
+                
+                <label for="kd">微分增益(Kd)</label>
+                <input type="number" id="kd" value="0.5" step="0.1">
+                
+                <label for="setpoint" id="setpointLabel">目標速度 (-5~5)</label>
+                <input type="number" id="setpoint" value="0" step="1" min="-5" max="5">
+            </div>
+        </div>
+        
+        <div class="visualization-container">
+            <button id="modeToggle" class="mode-button">切換到角度控制模式</button>
+            <canvas id="visualizationCanvas" width="360" height="360"></canvas>
+            <div class="status-display" id="statusText">轉速: 0.00 rad/s</div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+</body>
+</html>
